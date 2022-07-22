@@ -15,7 +15,7 @@
                    Text="Click button to collapse this text.&#10;&#10;How can this view be adjusted to support scrolling only for the collection view and not for the whole page?" 
                    Margin="20,20,0,0" HorizontalOptions="Fill"  HeightRequest="80" />
 
-            <Button Text="Collapse content" x:Name="btnCollapse"   Clicked="btnCollapse_Clicked" HorizontalOptions="Fill" HeightRequest="60" Margin="6" />
+            <Button Text="Collapse content" x:Name="btnCollapse" Clicked="btnCollapse_Clicked" HorizontalOptions="Fill" HeightRequest="60" Margin="6" />
             <CollectionView ItemsSource="{Binding Monkeys}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="model:Monkey">
