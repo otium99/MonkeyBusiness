@@ -5,46 +5,47 @@
              xmlns:viewmodel="clr-namespace:MonkeyBusiness.ViewModel"
              x:DataType="viewmodel:VerticalStackLayoutViewModel"
              xmlns:model="clr-namespace:MonkeyBusiness.Model">
-    <ScrollView>
-        <VerticalStackLayout  
-            Spacing="20" 
-            Padding="30,0" 
-            VerticalOptions="Center">
 
-            <Label x:Name="lblCollapsable" 
+
+    <CollectionView ItemsSource="{Binding Monkeys}">
+        <CollectionView.Header>
+            <StackLayout BackgroundColor="LightGray">
+                <Label x:Name="lblCollapsable" 
                    Text="Click button to collapse this text.&#10;&#10;How can this view be adjusted to support scrolling only for the collection view and not for the whole page?" 
                    Margin="20,20,0,0" HorizontalOptions="Fill"  HeightRequest="80" />
 
-            <Button Text="Collapse content" x:Name="btnCollapse" Clicked="btnCollapse_Clicked" HorizontalOptions="Fill" HeightRequest="60" Margin="6" />
-            <CollectionView ItemsSource="{Binding Monkeys}">
-                <CollectionView.ItemTemplate>
-                    <DataTemplate x:DataType="model:Monkey">
-                        <Grid Padding="10">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="Auto" />
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto" />
-                                <ColumnDefinition Width="Auto" />
-                            </Grid.ColumnDefinitions>
-                            <Image Grid.RowSpan="2" 
+                <Button Text="Collapse content" x:Name="btnCollapse" Clicked="btnCollapse_Clicked" HorizontalOptions="Fill" HeightRequest="60" Margin="6" />
+            </StackLayout>
+        </CollectionView.Header>
+
+
+        <CollectionView.ItemTemplate>
+            <DataTemplate x:DataType="model:Monkey">
+                <Grid Padding="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.RowSpan="2" 
                                Source="{Binding ImageUrl}" 
                                Aspect="AspectFill"
                                HeightRequest="60" 
                                WidthRequest="60" />
-                            <Label Grid.Column="1" 
+                    <Label Grid.Column="1" 
                                Text="{Binding Name}" 
                                FontAttributes="Bold" />
-                            <Label Grid.Row="1"
+                    <Label Grid.Row="1"
                                Grid.Column="1" 
                                Text="{Binding Location}"
                                FontAttributes="Italic" 
                                VerticalOptions="End" />
-                        </Grid>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
-        </VerticalStackLayout>
-    </ScrollView>
+                </Grid>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
+
 </ContentPage>
